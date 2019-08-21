@@ -7,11 +7,11 @@ import javax.persistence.*;
 public class Url {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String orginalUrl;
-    String shortenedUrl;
-    String owner;
+    private String orginalUrl;
+    private String shortenedUrl;
+    private String owner;
 
     //region Getters and Setters
 
