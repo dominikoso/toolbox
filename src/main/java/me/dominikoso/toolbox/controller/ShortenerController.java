@@ -5,16 +5,14 @@ import me.dominikoso.toolbox.model.Url;
 import me.dominikoso.toolbox.repository.UrlRepository;
 import me.dominikoso.toolbox.tools.ShortenerTools;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/shortener")
+@CrossOrigin(origins = "*")
 public class ShortenerController {
 
     @Autowired

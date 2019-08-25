@@ -1,5 +1,7 @@
 package me.dominikoso.toolbox.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,8 @@ public class Url {
 
     private String orginalUrl;
     private String shortenedUrl;
+
+    @JsonIgnore
     private String owner;
 
     //region Getters and Setters
