@@ -29,22 +29,33 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <h1 class="mt-5">Welcome to Dominikoso's UrlShortener</h1>
-            <p class="lead">Enter url bellow to shorten it</p>
-                <form class="form-inline justify-content-center">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="inputUrl" class="sr-only">Enter url to shorten</label>
-                        <input type="text" class="form-control" id="inputUrl" placeholder="Enter url to shorten">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Short Me!</button>
-                </form>
+            <p class="lead">Send POST request to /shortener endpoint. Example JSON:</p>
+            <code>{ "orginalUrl":"https://www.google.pl" }</code>
+            <br><br><br>
+            <table class="table justify-content-center">
+                <thead>
+                <tr>
+                    <th> Shortened link </th>
+                    <th> Full link </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${links.empty}">
+                    <td colspan="2"> Here you will see the links you shortened </td>
+                </tr>
+                <tr th:each="link : ${links}">
+                    <td><span th:text="${link.shortenedUrl}"> Shortened link </span></td>
+                    <td><span th:text="${link.orginalUrl}"> Full link</span></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
 <!-- Bootstrap core JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </body>
 </html>
