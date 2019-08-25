@@ -26,11 +26,13 @@ public class MainController {
                 new DeveloperResource("My Github", "https://github.com/dominikoso")
         };
         model.addAttribute("resources", devResources);
-        model.addAttribute("links", urlRepository.findAllByOwner(request.getRemoteAddr()));
+        //TODO dynamic link generation
+        model.addAttribute("links", "http://localhost:8080/s/" + urlRepository.findAllByOwner(request.getRemoteAddr()));
         return "home";
     }
 
-    @RequestMapping(value = "/{shortenedUrl}")
+    //TODO Secure checking is domain exist and add 404 template
+    @RequestMapping(value = "/s/{shortenedUrl}")
     public ModelAndView redirectUrl(@PathVariable String shortenedUrl){
         String projectUrl = urlRepository.findById(ShortenerTools.getDictionaryKeyFromUniqueID(shortenedUrl)).get().getOrginalUrl();
         System.out.println("Redirected to: "+ projectUrl);
